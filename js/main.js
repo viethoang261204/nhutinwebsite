@@ -14,13 +14,13 @@
     // Initiate the wowjs
     new WOW().init();
 
-    // Sticky Navbar: always visible, only add shadow/background after scrolling a bit
+    // Navbar: always visible, add shadow/background after scrolling a bit
     var onScroll = function() {
         var y = $(window).scrollTop();
         if (y > 10) {
-            $('.sticky-top').addClass('bg-white shadow-sm');
+            $('.sticky-top, .fixed-top').addClass('bg-white shadow-sm');
         } else {
-            $('.sticky-top').removeClass('bg-white shadow-sm');
+            $('.sticky-top, .fixed-top').removeClass('bg-white shadow-sm');
         }
     };
     onScroll();
@@ -48,18 +48,14 @@
         items: 1
     });
 
-    // About images carousel
+    // About images carousel - single large slide per view
     $(".about-carousel").owlCarousel({
         autoplay: true,
         smartSpeed: 800,
         loop: true,
         dots: true,
         margin: 16,
-        responsive: {
-            0: { items: 1 },
-            576: { items: 2 },
-            992: { items: 3 }
-        }
+        items: 1
     });
 
     // Testimonials carousel

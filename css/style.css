@@ -100,12 +100,27 @@ html, body { overflow-x: hidden; }
 
 
 /*** Navbar ***/
+/* Keep header visible while scrolling */
 .sticky-top {
     top: 0;
     position: sticky;
     transition: box-shadow .3s;
     z-index: 1020;
 }
+
+/* Truly fixed header */
+.fixed-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    transition: box-shadow .3s;
+    z-index: 1030;
+}
+
+/* Add top padding when page uses fixed header to avoid overlap */
+body.has-fixed-header { padding-top: 90px; }
 
 .navbar {
     padding: 15px 0;
@@ -173,6 +188,47 @@ html, body { overflow-x: hidden; }
     padding-top: 150px;
     background: url(../img/hero-bg.jpg) top center no-repeat;
     background-size: cover;
+}
+/* Improve long title readability on hero */
+.hero-header h1.display-1 {
+    line-height: 1.1;
+}
+
+/* Utilities for full-justified centered long titles */
+.hero-title-justified {
+    text-align: justify;
+    text-align-last: center;
+}
+.hero-title-narrow {
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.u-justify-center {
+    text-align: justify;
+}
+.u-justify-center h1,
+.u-justify-center p,
+.u-justify-center div {
+    text-align: justify;
+}
+.u-justify-center h1 { text-align-last: center; }
+
+/* Keyword highlight */
+.kw {
+    font-weight: 700;
+    color: var(--bs-primary);
+}
+
+/* Video captions and section highlights */
+.video-caption {
+    font-weight: 700;
+    color: var(--bs-primary);
+}
+.section-lead {
+    font-weight: 700;
+    color: var(--bs-primary);
 }
 
 /* Standardize hero feature icon boxes */
@@ -258,6 +314,19 @@ html, body { overflow-x: hidden; }
 
 /* Ensure about carousel doesn't overflow horizontally */
 .about-carousel { overflow: hidden; }
+/* Enlarged single-image slides for solution page */
+.about-carousel .owl-stage-outer { border-radius: 8px; }
+.about-carousel img {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+}
+@media (max-width: 991.98px) {
+    .about-carousel img { height: 420px; }
+}
+@media (max-width: 576px) {
+    .about-carousel img { height: 300px; }
+}
   
 .project-item:hover img {
     transform: scale(1.2);
