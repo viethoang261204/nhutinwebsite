@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: nhutin-website
+    env: static
+    buildCommand: ""
+    staticPublishPath: .
+    pullRequestPreviewsEnabled: true
+    routes:
+      # If you later add client-side routing (SPA), keep this to always serve index.html
+      - type: rewrite
+        source: /*
+        destination: /index.html
+
