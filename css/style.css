@@ -231,6 +231,16 @@ body.has-fixed-header { padding-top: 90px; }
     color: var(--bs-primary);
 }
 
+/* Image hover effects for gallery */
+.gallery-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+.gallery-hover:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
 /* Standardize hero feature icon boxes */
 .hero-badge {
     width: 48px;
