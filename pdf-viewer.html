@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <title>PDF Viewer - Tài liệu KEITH® | Như Tín Vietnam</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <script>
+        (function () {
+            var params = new URLSearchParams(window.location.search);
+            var file = params.get('file');
+            if (file) {
+                window.location.replace('pdf/' + file);
+            } else {
+                document.addEventListener('DOMContentLoaded', function() {
+                    document.body.textContent = 'Không tìm thấy tài liệu PDF.';
+                });
+            }
+        })();
+    </script>
+    <style>html,body{height:100%;margin:0}</style>
+    <noscript>Vui lòng bật JavaScript để mở PDF.</noscript>
+</head>
+<body></body>
+</html>
+
+
