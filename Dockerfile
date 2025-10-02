@@ -30,8 +30,8 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Copy composer files
 COPY composer.json composer.lock* ./
 
-# Install PHP dependencies
-RUN composer install --no-dev --optimize-autoloader --no-interaction
+# Install PHP dependencies (with dev dependencies first for artisan commands)
+RUN composer install --optimize-autoloader --no-interaction
 
 # Copy package files
 COPY package*.json ./
@@ -44,6 +44,9 @@ COPY . .
 
 # Build assets
 RUN npm run production
+
+# Remove dev dependencies to reduce image size
+RUN composer install --no-dev --optimize-autoloader --no-interaction
 
 # Set permissions
 RUN chown -R www-data:www-data /var/www/html \
