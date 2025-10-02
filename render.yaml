@@ -1,10 +1,17 @@
 services:
-  # Web Service - Laravel Application
   - type: web
     name: nhutin-web
     env: php
     plan: starter
-    buildCommand: composer install --no-dev --optimize-autoloader && npm ci && npm run production && php artisan key:generate --force && php artisan migrate --force && php artisan config:cache && php artisan route:cache && php artisan view:cache
+    buildCommand: |
+      composer install --no-dev --optimize-autoloader
+      npm ci
+      npm run production
+      php artisan key:generate
+      php artisan migrate --force
+      php artisan config:cache
+      php artisan route:cache
+      php artisan view:cache
     startCommand: php artisan serve --host=0.0.0.0 --port=$PORT
     envVars:
       - key: APP_NAME
@@ -19,8 +26,6 @@ services:
         value: https://nhutin-web.onrender.com
       - key: LOG_CHANNEL
         value: stack
-      - key: LOG_DEPRECATIONS_CHANNEL
-        value: null
       - key: LOG_LEVEL
         value: error
       - key: DB_CONNECTION
@@ -37,76 +42,6 @@ services:
         value: file
       - key: SESSION_LIFETIME
         value: 120
-      - key: MEMCACHED_HOST
-        value: 127.0.0.1
-      - key: REDIS_HOST
-        value: 127.0.0.1
-      - key: REDIS_PASSWORD
-        value: null
-      - key: REDIS_PORT
-        value: 6379
-      - key: MAIL_MAILER
-        value: smtp
-      - key: MAIL_HOST
-        value: mailpit
-      - key: MAIL_PORT
-        value: 1025
-      - key: MAIL_USERNAME
-        value: null
-      - key: MAIL_PASSWORD
-        value: null
-      - key: MAIL_ENCRYPTION
-        value: null
-      - key: MAIL_FROM_ADDRESS
-        value: hello@example.com
-      - key: MAIL_FROM_NAME
-        value: "${APP_NAME}"
-      - key: AWS_ACCESS_KEY_ID
-        value: null
-      - key: AWS_SECRET_ACCESS_KEY
-        value: null
-      - key: AWS_DEFAULT_REGION
-        value: us-east-1
-      - key: AWS_BUCKET
-        value: null
-      - key: AWS_USE_PATH_STYLE_ENDPOINT
-        value: false
-      - key: PUSHER_APP_ID
-        value: null
-      - key: PUSHER_APP_KEY
-        value: null
-      - key: PUSHER_APP_SECRET
-        value: null
-      - key: PUSHER_HOST
-        value: null
-      - key: PUSHER_PORT
-        value: null
-      - key: PUSHER_SCHEME
-        value: https
-      - key: PUSHER_APP_CLUSTER
-        value: mt1
-      - key: VITE_PUSHER_APP_KEY
-        value: "${PUSHER_APP_KEY}"
-      - key: VITE_PUSHER_HOST
-        value: "${PUSHER_HOST}"
-      - key: VITE_PUSHER_PORT
-        value: "${PUSHER_PORT}"
-      - key: VITE_PUSHER_SCHEME
-        value: "${PUSHER_SCHEME}"
-      - key: VITE_PUSHER_APP_CLUSTER
-        value: "${PUSHER_APP_CLUSTER}"
     healthCheckPath: /
     autoDeploy: true
     branch: main
-
-  # Database Service (Optional - if you want to use PostgreSQL instead of SQLite)
-  # - type: pserv
-  #   name: nhutin-db
-  #   env: postgresql
-  #   plan: starter
-  #   region: singapore
-  #   maxConnections: 20
-  #   disk:
-  #     name: nhutin-db-disk
-  #     mountPath: /var/lib/postgresql/data
-  #     sizeGB: 1
