@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/favicon_io/site.webmanifest">
+    <link rel="shortcut icon" href="/favicon_io/favicon.ico">
+    <title>Dashboard</title>
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <!-- Font Awesome Icons (replace kit to avoid 403) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkfAm9P1Z9WqbsZrh8GhogX1qfQ8Z8a9ka65hp8cNfZC+YbC3vN4r4Ykw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Nucleo Icons -->
+    <link href="/admin-assets/assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="/admin-assets/assets/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- Popper -->
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <!-- Main Styling -->
+    <link href="/admin-assets/assets/css/argon-dashboard-tailwind.css?v=1.0.1" rel="stylesheet" />
+  </head>
+
+  <body class="m-0 font-sans text-base antialiased font-normal dark:bg-slate-900 leading-default bg-blue-500 text-slate-500">
+    <div class="fixed inset-0 bg-blue-500 dark:hidden -z-10"></div>
+    <!-- sidenav  -->
+    <aside class="fixed inset-y-0 flex-wrap items-center justify-between block w-full p-0 my-4 overflow-y-auto antialiased transition-transform duration-200 -translate-x-full bg-white border-0 shadow-xl dark:shadow-none dark:bg-slate-850 max-w-64 ease-nav-brand z-990 xl:ml-6 rounded-2xl xl:left-0 xl:translate-x-0" aria-expanded="false">
+      <div class="h-19">
+        <i class="absolute top-0 right-0 p-4 opacity-50 cursor-pointer fas fa-times dark:text-white text-slate-400 xl:hidden" sidenav-close></i>
+        <a class="block px-8 py-6 m-0 text-sm whitespace-nowrap dark:text-white text-slate-700" href="/" target="_blank">
+          <img src="/img/logo.png" class="inline h-full max-w-full transition-all duration-200 ease-nav-brand max-h-8" alt="main_logo" />
+        </a>
+      </div>
+
+      <hr class="h-px mt-0 bg-transparent bg-gradient-to-r from-transparent via-black/40 to-transparent dark:bg-gradient-to-r dark:from-transparent dark:via-white dark:to-transparent" />
+
+      <div class="items-center block w-auto max-h-screen overflow-auto h-sidenav grow basis-full">
+        <ul class="flex flex-col pl-0 mb-0">
+          <li class="mt-0.5 w-full">
+            <a class="py-2.7 bg-blue-500/13 dark:text-white dark:opacity-80 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap rounded-lg px-4 font-semibold text-slate-700 transition-colors" href="#">
+              <div class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
+                <i class="relative top-0 text-sm leading-normal text-blue-500 ni ni-tv-2"></i>
+              </div>
+              <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Dashboard</span>
+            </a>
+          </li>
+
+          <li class="mt-0.5 w-full">
+            <a class="py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors dark:text-white dark:opacity-80" href="/admin/news">
+              <div class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
+                <i class="relative top-0 text-sm leading-normal text-orange-500 ni ni-calendar-grid-58"></i>
+              </div>
+              <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Tin tức</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- end sidenav -->
+
+    <main class="relative h-full max-h-screen transition-all duration-200 ease-in-out xl:ml-68 rounded-xl">
+      <!-- Navbar -->
+      <nav class="relative flex flex-wrap items-center justify-between px-0 py-2 mx-6 transition-all ease-in shadow-none duration-250 rounded-2xl lg:flex-nowrap lg:justify-start" navbar-main navbar-scroll="false">
+        <div class="flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit">
+          <nav>
+            <!-- breadcrumb -->
+            <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+              <li class="text-sm leading-normal">
+                <a class="text-white opacity-50" href="javascript:;">Admin</a>
+              </li>
+              <li class="text-sm pl-2 capitalize leading-normal text-white before:float-left before:pr-2 before:text-white before:content-['/']" aria-current="page">Dashboard</li>
+            </ol>
+            <h6 class="mb-0 font-bold text-white capitalize">Dashboard</h6>
+          </nav>
+
+          <div class="flex items-center mt-2 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto">
+            <div class="flex items-center md:ml-auto md:pr-4">
+              <div class="relative flex flex-wrap items-stretch w-full transition-all rounded-lg ease">
+                <span class="text-sm ease leading-5.6 absolute z-50 -ml-px flex h-full items-center whitespace-nowrap rounded-lg rounded-tr-none rounded-br-none border border-r-0 border-transparent bg-transparent py-2 px-2.5 text-center font-normal text-slate-500 transition-all">
+                  <i class="fas fa-search"></i>
+                </span>
+              </div>
+            </div>
+            <ul class="flex flex-row justify-end pl-0 mb-0 list-none md-max:w-full">
+
+              <li class="flex items-center">
+                <a href="/admin/logout" class="block px-3 py-2 text-sm font-semibold text-white transition-all ease-nav-brand rounded-md hover:bg-white/10">
+                  <i class="fa fa-sign-out-alt sm:mr-1"></i>
+                  <span class="hidden sm:inline">Đăng xuất</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- end Navbar -->
+
+      <!-- cards -->
+      <div class="w-full px-6 py-6 mx-auto">
+        <!-- row 1 -->
+        <div class="flex flex-wrap -mx-3">
+          <!-- card1 -->
+          <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+            <div class="relative flex flex-col min-w-0 break-words bg-white shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border">
+              <div class="flex-auto p-4">
+                <div class="flex flex-row -mx-3">
+                  <div class="flex-none w-2/3 max-w-full px-3">
+                    <div>
+                      <p class="mb-0 font-sans text-sm font-semibold leading-normal uppercase dark:text-white dark:opacity-60">Tin tức</p>
+                      <h5 id="kpi-news" class="mb-2 font-bold dark:text-white">-</h5>
+                      <p class="mb-0 dark:text-white dark:opacity-60">since yesterday</p>
+                    </div>
+                  </div>
+                  <div class="px-3 text-right basis-1/3">
+                    <div class="inline-block w-12 h-12 text-center rounded-circle bg-gradient-to-tl from-blue-500 to-violet-500">
+                      <i class="ni leading-none ni-money-coins text-lg relative top-3.5 text-white"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- card2 -->
+          <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+            <div class="relative flex flex-col min-w-0 break-words bg-white shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border">
+              <div class="flex-auto p-4">
+                <div class="flex flex-row -mx-3">
+                  <div class="flex-none w-2/3 max-w-full px-3">
+                    <div>
+                      <p class="mb-0 font-sans text-sm font-semibold leading-normal uppercase dark:text-white dark:opacity-60">Lượt truy cập</p>
+                      <h5 id="kpi-visits" class="mb-2 font-bold dark:text-white">-</h5>
+                      <p id="kpi-visits-change" class="mb-0 dark:text-white dark:opacity-60">since yesterday</p>
+                    </div>
+                  </div>
+                  <div class="px-3 text-right basis-1/3">
+                    <div class="inline-block w-12 h-12 text-center rounded-circle bg-gradient-to-tl from-red-600 to-orange-600">
+                      <i class="ni leading-none ni-world text-lg relative top-3.5 text-white"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- card3 -->
+          <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
+            <div class="relative flex flex-col min-w-0 break-words bg-white shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border">
+              <div class="flex-auto p-4">
+                <div class="flex flex-row -mx-3">
+                  <div class="flex-none w-2/3 max-w-full px-3">
+                    <div>
+                      <p class="mb-0 font-sans text-sm font-semibold leading-normal uppercase dark:text-white dark:opacity-60">Bình luận</p>
+                      <h5 id="kpi-comments" class="mb-2 font-bold dark:text-white">-</h5>
+                      <p class="mb-0 dark:text-white dark:opacity-60">since yesterday</p>
+                    </div>
+                  </div>
+                  <div class="px-3 text-right basis-1/3">
+                    <div class="inline-block w-12 h-12 text-center rounded-circle bg-gradient-to-tl from-emerald-500 to-teal-400">
+                      <i class="ni leading-none ni-paper-diploma text-lg relative top-3.5 text-white"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- cards row 2 -->
+        <div class="flex flex-wrap mt-6 -mx-3">
+          <div class="w-full max-w-full px-3 mt-0 lg:w-7/12 lg:flex-none">
+            <div class="border-black/12.5 dark:bg-slate-850 dark:shadow-dark-xl shadow-xl relative z-20 flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border">
+              <div class="border-black/12.5 mb-0 rounded-t-2xl border-b-0 border-solid p-6 pt-4 pb-0">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <h6 class="capitalize dark:text-white">Lượt truy cập (theo ngày)</h6>
+                    <p class="mb-0 text-sm leading-normal dark:text-white dark:opacity-60">Tổng hôm nay so với hôm qua</p>
+                  </div>
+                  <button id="btn-refresh-stats" class="inline-flex items-center px-3 py-1 text-xs font-semibold text-white bg-blue-600 rounded-md hover:bg-blue-700 active:scale-95">
+                    Refresh
+                  </button>
+                </div>
+              </div>
+              <div class="flex-auto p-4">
+                <div>
+                  <canvas id="chart-visits-day" height="300"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+
+          <div class="w-full max-w-full px-3 mt-0 lg:w-5/12 lg:flex-none">
+            <div class="border-black/12.5 dark:bg-slate-850 dark:shadow-dark-xl shadow-xl relative z-20 flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border overflow-hidden">
+              <div class="border-black/12.5 mb-0 rounded-t-2xl border-b-0 border-solid p-6 pt-4 pb-0">
+                <h6 class="capitalize dark:text-white">Lượt truy cập (tháng & năm)</h6>
+              </div>
+              <div class="flex-auto p-4">
+                <div class="mb-6" style="height: 300px;">
+                  <h6 class="mb-2 text-sm text-slate-600">Theo tháng (12 tháng)</h6>
+                  <canvas id="chart-visits-month"></canvas>
+                      </div>
+                <div style="height: 200px;">
+                  <h6 class="mb-2 text-sm text-slate-600">Theo năm (5 năm)</h6>
+                  <canvas id="chart-visits-year"></canvas>
+                    </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end cards -->
+    </main>
+  </body>
+  <!-- plugin for charts (CDN to avoid 404) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <!-- main script file  -->
+  <script src="/admin-assets/assets/js/argon-dashboard-tailwind.js?v=1.0.1"></script>
+  <script>
+    async function loadStats() {
+      try {
+        console.log('Loading stats...');
+        const res = await fetch('/admin/api/stats');
+        console.log('Response status:', res.status);
+        if (!res.ok) {
+          console.error('API error:', res.status);
+          return;
+        }
+        const data = await res.json();
+        console.log('Stats data:', data);
+        
+        const elNews = document.getElementById('kpi-news');
+        const elComments = document.getElementById('kpi-comments');
+        const elVisits = document.getElementById('kpi-visits');
+        const elVisitsChange = document.getElementById('kpi-visits-change');
+        if (elNews) elNews.textContent = data.newsCount ?? '-';
+        if (elComments) elComments.textContent = data.commentCount ?? '-';
+        if (elVisits) elVisits.textContent = data.totalVisits ?? '-';
+        if (elVisitsChange) {
+          const change = data.visitChange ?? 0;
+          const sign = change >= 0 ? '+' : '';
+          const color = change >= 0 ? 'text-green-500' : 'text-red-500';
+          elVisitsChange.innerHTML = `${sign}${change}% since yesterday`;
+          elVisitsChange.className = `mb-0 ${color} dark:opacity-60`;
+        }
+
+        console.log('Chart available:', !!window.Chart);
+        if (window.Chart) {
+          const mkLine = (id, labels, values, color) => {
+            const ctx = document.getElementById(id);
+            if (!ctx) {
+              console.error('Canvas not found:', id);
+              return;
+            }
+            console.log('Creating chart:', id, labels.length, values.length);
+            new Chart(ctx, {
+              type: 'line',
+              data: { labels, datasets: [{ data: values, borderColor: color, backgroundColor: color+'26', fill: true, tension: .35, pointRadius: 2 }] },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                  x: { ticks: { maxRotation: 0, autoSkip: true, maxTicksLimit: id==='chart-visits-day'?10:(id==='chart-visits-month'?12:6) } },
+                  y: { beginAtZero: true, ticks: { precision: 0 } }
+                },
+                layout: { padding: { left: 12, right: 12, top: 8, bottom: 15 } }
+              }
+            });
+          };
+          const dL = (data.visitsByDay||[]).map(i=>i.d), dV = (data.visitsByDay||[]).map(i=>i.c);
+          const mL = (data.visitsByMonth||[]).map(i=>i.m), mV = (data.visitsByMonth||[]).map(i=>i.c);
+          const yL = (data.visitsByYear||[]).map(i=>i.y), yV = (data.visitsByYear||[]).map(i=>i.c);
+          console.log('Day data:', dL.length, dV.length);
+          console.log('Month data:', mL.length, mV.length);
+          console.log('Year data:', yL.length, yV.length);
+          mkLine('chart-visits-day', dL, dV, '#22c55e');
+          mkLine('chart-visits-month', mL, mV, '#3b82f6');
+          mkLine('chart-visits-year', yL, yV, '#f97316');
+          // sources removed
+        } else {
+          console.error('Chart.js not loaded');
+        }
+      } catch (e) {
+        console.error('Error:', e);
+      }
+    }
+    
+    // Wait for Chart.js to load
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(loadStats, 1000);
+      const btn = document.getElementById('btn-refresh-stats');
+      if (btn) btn.addEventListener('click', () => loadStats());
+    });
+  </script>
+</html>

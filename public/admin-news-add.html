@@ -1,0 +1,258 @@
+<!--
+=========================================================
+* Argon Dashboard 2 Tailwind - v1.0.1
+=========================================================
+* Product Page: https://www.creative-tim.com/product/argon-dashboard-tailwind
+* Copyright 2022 Creative Tim (https://www.creative-tim.com)
+* Coded by www.creative-tim.com
+=========================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="csrf-token" content="" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicon_io/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" href="/favicon_io/favicon-32x32.png" />
+    <title>Thêm tin tức</title>
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkfAm9P1Z9WqbsZrh8GhogX1qfQ8Z8a9ka65hp8cNfZC+YbC3vN4r4Ykw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Nucleo Icons -->
+    <link href="/admin-assets/assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="/admin-assets/assets/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- Main Styling -->
+    <link href="/admin-assets/assets/css/argon-dashboard-tailwind.css?v=1.0.1" rel="stylesheet" />
+  </head>
+
+  <body class="m-0 font-sans text-base antialiased font-normal leading-default text-slate-500" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh;">
+    <div class="absolute w-full min-h-screen" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+
+    <aside class="fixed inset-y-0 flex-wrap items-center justify-between block w-full p-0 my-4 overflow-y-auto antialiased transition-transform duration-200 -translate-x-full bg-white border-0 shadow-xl dark:shadow-none dark:bg-slate-850 xl:ml-6 max-w-64 ease-nav-brand z-990 rounded-2xl xl:left-0 xl:translate-x-0" aria-expanded="false">
+      <div class="h-19">
+        <i class="absolute top-0 right-0 p-4 opacity-50 cursor-pointer fas fa-times dark:text-white text-slate-400 xl:hidden" sidenav-close></i>
+        <a class="block px-8 py-6 m-0 text-sm whitespace-nowrap dark:text-white text-slate-700" href="/admin">
+          <img src="/img/logo.png" class="inline h-full max-w-full transition-all duration-200 dark:hidden ease-nav-brand max-h-8" alt="main_logo" />
+          <span class="ml-1 font-semibold transition-all duration-200 ease-nav-brand">NHUTIN</span>
+        </a>
+      </div>
+
+      <hr class="h-px mt-0 bg-transparent bg-gradient-to-r from-transparent via-black/40 to-transparent dark:bg-gradient-to-r dark:from-transparent dark:via-white dark:to-transparent" />
+
+      <div class="items-center block w-auto max-h-screen overflow-auto h-sidenav grow basis-full">
+        <ul class="flex flex-col pl-0 mb-0">
+          <li class="mt-0.5 w-full">
+            <a class="py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors dark:text-white dark:opacity-80" href="/admin">
+              <div class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
+                <i class="relative top-0 text-sm leading-normal text-blue-500 ni ni-tv-2"></i>
+              </div>
+              <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Dashboard</span>
+            </a>
+          </li>
+          
+          <li class="mt-0.5 w-full">
+            <a class="py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors dark:text-white dark:opacity-80" href="/admin/news">
+              <div class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
+                <i class="relative top-0 text-sm leading-normal text-orange-500 ni ni-calendar-grid-58"></i>
+              </div>
+              <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Tin tức</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="mx-4">
+        <a href="/admin/logout" class="inline-block w-full px-8 py-2 mb-4 text-xs font-bold leading-normal text-center text-white capitalize transition-all ease-in rounded-lg shadow-md bg-red-600 bg-150 hover:shadow-xs hover:-translate-y-px">Đăng xuất</a>
+      </div>
+    </aside>
+
+    <main class="relative h-full max-h-screen transition-all duration-200 ease-in-out xl:ml-68 rounded-xl">
+      <!-- Navbar -->
+      <nav class="relative flex flex-wrap items-center justify-between px-0 py-2 mx-6 transition-all ease-in shadow-none duration-250 rounded-2xl lg:flex-nowrap lg:justify-start" navbar-main navbar-scroll="false">
+        <div class="flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit">
+          <nav>
+            <!-- breadcrumb -->
+            <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+              <li class="text-sm leading-normal">
+                <a class="text-white opacity-50" href="/admin">Admin</a>
+              </li>
+              <li class="text-sm pl-2 capitalize leading-normal text-white before:float-left before:pr-2 before:text-white before:content-['/']">
+                <a class="text-white opacity-50" href="/admin/news">Tin tức</a>
+              </li>
+              <li class="text-sm pl-2 capitalize leading-normal text-white before:float-left before:pr-2 before:text-white before:content-['/']" aria-current="page">Thêm mới</li>
+            </ol>
+            <h6 class="mb-0 font-bold text-white capitalize">Thêm tin tức mới</h6>
+          </nav>
+
+          <div class="flex items-center mt-2 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto">
+            <ul class="flex flex-row justify-end pl-0 mb-0 list-none md-max:w-full">
+              <li class="flex items-center">
+                <a href="/admin/logout" class="block px-0 py-2 text-sm font-semibold text-white transition-all ease-nav-brand">
+                  <i class="fa fa-sign-out-alt sm:mr-1"></i>
+                  <span class="hidden sm:inline">Đăng xuất</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="w-full px-6 py-6 mx-auto">
+        <!-- Add News Form -->
+        <div class="flex flex-wrap -mx-3">
+          <div class="flex-none w-full max-w-full px-3">
+            <div class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border">
+              <div class="p-6 pb-0 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
+                <h6 class="dark:text-white">Thông tin tin tức</h6>
+              </div>
+              <div class="flex-auto p-6">
+                <form id="news-form" class="space-y-6">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label class="block text-sm font-medium text-gray-700 mb-2">Tiêu đề (Tiếng Việt) *</label>
+                      <input type="text" id="title-vi" name="title_vi" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                    
+                    <div>
+                      <label class="block text-sm font-medium text-gray-700 mb-2">Tiêu đề (English) *</label>
+                      <input type="text" id="title-en" name="title_en" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                  </div>
+                  
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label class="block text-sm font-medium text-gray-700 mb-2">Nội dung (Tiếng Việt) *</label>
+                      <textarea id="content-vi" name="content_vi" rows="6" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+                    </div>
+                    
+                    <div>
+                      <label class="block text-sm font-medium text-gray-700 mb-2">Nội dung (English) *</label>
+                      <textarea id="content-en" name="content_en" rows="6" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+                    </div>
+                  </div>
+                  
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label class="block text-sm font-medium text-gray-700 mb-2">URL hình ảnh</label>
+                      <input type="url" id="image-url" name="image_url" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="https://example.com/image.jpg">
+                    </div>
+                    
+                    <div>
+                      <label class="block text-sm font-medium text-gray-700 mb-2">Danh mục</label>
+                      <select id="category-id" name="category_id" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="">Chọn danh mục</option>
+                      </select>
+                    </div>
+                  </div>
+                  
+                  <div class="flex justify-end space-x-3 pt-6">
+                    <a href="/admin/news" class="px-6 py-2 text-sm font-medium text-gray-700 bg-gray-200 border border-gray-300 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500">
+                      <i class="fas fa-arrow-left mr-2"></i>Quay lại
+                    </a>
+                    <button type="submit" class="px-6 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                      <i class="fas fa-save mr-2"></i>Lưu tin tức
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <footer class="pt-4">
+          <div class="w-full px-6 mx-auto">
+            <div class="flex flex-wrap items-center -mx-3 lg:justify-between">
+              <div class="w-full max-w-full px-3 mt-0 mb-6 shrink-0 lg:mb-0 lg:w-1/2 lg:flex-none">
+                <div class="text-sm leading-normal text-center text-white lg:text-left">
+                  ©
+                  <script>
+                    document.write(new Date().getFullYear() + ",");
+                  </script>
+                  made <i class="fa fa-heart"></i> by VietHoang
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </main>
+
+    <!-- main script file  -->
+    <script src="/admin-assets/assets/js/argon-dashboard-tailwind.js?v=1.0.1"></script>
+    <script>
+      let categories = [];
+      let csrfToken = '';
+
+      // Get CSRF token
+      async function getCsrfToken() {
+        try {
+          const response = await fetch('/admin/api/csrf-token');
+          if (response.ok) {
+            const data = await response.json();
+            csrfToken = data.csrf_token;
+            // Update meta tag
+            document.querySelector('meta[name="csrf-token"]').setAttribute('content', csrfToken);
+          }
+        } catch (error) {
+          console.error('Error getting CSRF token:', error);
+        }
+      }
+
+      // Load categories
+      async function loadCategories() {
+        try {
+          const response = await fetch('/admin/api/categories');
+          if (response.ok) {
+            categories = await response.json();
+            const select = document.getElementById('category-id');
+            select.innerHTML = '<option value="">Chọn danh mục</option>';
+            categories.forEach(cat => {
+              select.innerHTML += `<option value="${cat.id}">${cat.name}</option>`;
+            });
+          }
+        } catch (error) {
+          console.error('Error loading categories:', error);
+        }
+      }
+
+      // Handle form submission
+      document.getElementById('news-form').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData);
+        
+        try {
+          const response = await fetch('/admin/api/news', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-CSRF-TOKEN': csrfToken
+            },
+            body: JSON.stringify(data)
+          });
+          
+          if (response.ok) {
+            alert('Thêm tin tức thành công!');
+            window.location.href = '/admin/news';
+          } else {
+            const errorData = await response.json();
+            alert('Có lỗi xảy ra: ' + (errorData.message || 'Unknown error'));
+          }
+        } catch (error) {
+          console.error('Error saving news:', error);
+          alert('Có lỗi xảy ra khi lưu tin tức!');
+        }
+      });
+
+      // Initialize
+      document.addEventListener('DOMContentLoaded', async function() {
+        await getCsrfToken();
+        loadCategories();
+      });
+    </script>
+  </body>
+</html>

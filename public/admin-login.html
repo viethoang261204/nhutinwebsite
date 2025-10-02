@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/favicon_io/site.webmanifest">
+    <link rel="shortcut icon" href="/favicon_io/favicon.ico">
+    <title>ADMIN</title>
+    <!--     Fonts and icons     -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome Icons -->
+    <script
+      src="https://kit.fontawesome.com/42d5adcbca.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Admin bundled CSS -->
+    <link href="/admin-assets/assets/css/admin.css?v=1" rel="stylesheet" />
+  </head>
+
+  <body
+    class="m-0 font-sans antialiased font-normal bg-white text-start text-base leading-default text-slate-500"
+  >
+    <main class="mt-0 transition-all duration-200 ease-in-out">
+      <section>
+        <div
+          class="relative flex items-center justify-center min-h-screen p-0 overflow-hidden bg-center bg-cover"
+        >
+          <div class="container z-1 flex justify-center">
+            <div
+              class="flex flex-col w-full max-w-md px-3 mx-auto shrink-0 md:w-7/12 lg:w-5/12 xl:w-4/12"
+            >
+              <div
+                class="relative flex flex-col min-w-0 break-words bg-white shadow-lg rounded-2xl bg-clip-border"
+              >
+                <!-- Logo công ty -->
+                <div class="flex justify-center mt-6">
+                  <img
+                    src="/img/logo.png"
+                    alt="Company Logo"
+                    class="w-32 h-32 object-contain"
+                  />
+                </div>
+                <div class="flex-auto p-6">
+                  <div id="login-error" class="mb-4 hidden text-sm font-semibold text-red-600"></div>
+                  <form role="form" method="POST" action="/admin/login">
+                    <div class="mb-4">
+                      <input
+                        name="username"
+                        placeholder="Tài khoản"
+                        class="focus:shadow-primary-outline dark:bg-gray-950 dark:placeholder:text-white/80 dark:text-white/80 text-sm block w-full rounded-lg border border-solid border-gray-300 bg-white p-3 text-gray-700 placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none transition-all"
+                      />
+                    </div>
+                    <div class="mb-4 relative">
+                      <input
+                        name="password"
+                        id="password"
+                        type="password"
+                        placeholder="Mật khẩu"
+                        class="focus:shadow-primary-outline dark:bg-gray-950 dark:placeholder:text-white/80 dark:text-white/80 text-sm block w-full rounded-lg border border-solid border-gray-300 bg-white p-3 pr-10 text-gray-700 placeholder:text-gray-500 focus:border-fuchsia-300 focus:outline-none transition-all"
+                      />
+                      <!-- Icon con mắt -->
+                      <i
+                        id="togglePassword"
+                        class="fa fa-eye absolute right-3 top-3 cursor-pointer text-gray-500"
+                      ></i>
+                    </div>
+                    <div class="text-center">
+                      <button
+                        type="submit"
+                        class="inline-block w-full px-16 py-3.5 mt-6 font-bold text-white bg-blue-500 rounded-lg shadow-md hover:-translate-y-px hover:shadow-lg active:opacity-85 transition-all"
+                      >
+                        Đăng Nhập
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Script ẩn/hiện mật khẩu + lỗi -->
+    <script>
+      const togglePassword = document.querySelector("#togglePassword");
+      const password = document.querySelector("#password");
+
+      togglePassword.addEventListener("click", function () {
+        const type =
+          password.getAttribute("type") === "password" ? "text" : "password";
+        password.setAttribute("type", type);
+
+        this.classList.toggle("fa-eye");
+        this.classList.toggle("fa-eye-slash");
+      });
+
+      const params = new URLSearchParams(window.location.search);
+      const err = params.get('error');
+      if (err) {
+        const box = document.getElementById('login-error');
+        if (box) {
+          box.classList.remove('hidden');
+          box.textContent = err === 'not_found' ? 'Tài khoản không tồn tại.' : 'Mật khẩu không đúng.';
+        }
+      }
+    </script>
+  </body>
+</html>
