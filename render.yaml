@@ -3,6 +3,7 @@ services:
     name: nhutin-web
     env: php
     plan: starter
+    runtime: php-8.2
     buildCommand: |
       composer install --no-dev --optimize-autoloader
       npm ci
@@ -14,6 +15,8 @@ services:
       php artisan view:cache
     startCommand: php artisan serve --host=0.0.0.0 --port=$PORT
     envVars:
+      - key: PHP_VERSION
+        value: 8.2
       - key: APP_NAME
         value: NHUTIN
       - key: APP_ENV
